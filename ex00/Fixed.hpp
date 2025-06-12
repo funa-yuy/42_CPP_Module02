@@ -15,16 +15,16 @@
 
 class Fixed {
 	public:
-		Fixed();//固定小数点数値を 0 に初期化するデフォルトコンストラクタ(A default constructor )。
-		Fixed(const Fixed& c);//コピーコンストラクタ。(A copy constructor.)
-		Fixed& operator=(const Fixed& c);//コピー代入演算子のオーバーロード。(A copy assignment operator overload.)
-		~Fixed();	//デストラクタ(A destructor)
-		int getRawBits(void) const;//固定小数点値の生の値を返します。 //constをつけることで、この関数内ではメンバ変数の変更ができなくなる。constメンバ関数とも呼ばれる
-		void setRawBits(int const raw);//固定小数点数の生の値を設定します。
+		Fixed();
+		Fixed(const Fixed& c);
+		Fixed& operator=(const Fixed& c);
+		~Fixed();
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 
 	private:
-		int fixed_point_;
-		static const int fractional_bits_;
+		int fixed_point_;//固定小数点数値を格納する整数。
+		static const int fractional_bits_ = 8;//小数点以下のビット数を格納し、値は常に整数リテラル8になります。
 };
 
 // ------------------------------------------------

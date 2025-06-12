@@ -1,11 +1,11 @@
 #include"Fixed.hpp"
 
 int main( void ) {
-	Fixed a;// デフォルトコンストラクタでオブジェクト作成
-	Fixed b( a );// コピーコンストラクタでオブジェクト作成
+	Fixed a;// デフォルトコンストラクタ
+	Fixed b( a );// コピーコンストラクタ
 	Fixed c;
 
-	c = b;
+	c = b;//コピー代入演算子
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
