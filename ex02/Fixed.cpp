@@ -152,19 +152,19 @@ bool Fixed::operator!=(const Fixed& rhs) const {			//ex02
 
 // 算術演算子 数値の計算 ---------------------------------------------
 
-Fixed Fixed::operator+(const Fixed& rhs) {					 //ex02
+Fixed Fixed::operator+(const Fixed& rhs) const {					 //ex02
 	return (Fixed(this->toFloat() + rhs.toFloat()));
 }
 
-Fixed Fixed::operator-(const Fixed& rhs) { 					//ex02
+Fixed Fixed::operator-(const Fixed& rhs) const {					//ex02
 	return (Fixed(this->toFloat() - rhs.toFloat()));
 }
 
-Fixed Fixed::operator*(const Fixed& rhs) { 					//ex02
+Fixed Fixed::operator*(const Fixed& rhs) const {					//ex02
 	return (Fixed(this->toFloat() * rhs.toFloat()));
 }
 
-Fixed Fixed::operator/(const Fixed& rhs) { 					//ex02
+Fixed Fixed::operator/(const Fixed& rhs) const {					//ex02
 	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 

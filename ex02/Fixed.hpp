@@ -37,10 +37,10 @@ class Fixed {
 		bool operator!=(const Fixed& rhs) const;
 
 		/* 算術演算子 数値の計算 */
-		Fixed operator+(const Fixed& rhs);
-		Fixed operator-(const Fixed& rhs);
-		Fixed operator*(const Fixed& rhs);
-		Fixed operator/(const Fixed& rhs);
+		Fixed operator+(const Fixed& rhs) const;
+		Fixed operator-(const Fixed& rhs) const;
+		Fixed operator*(const Fixed& rhs) const;
+		Fixed operator/(const Fixed& rhs) const;
 
 		/* インクリメント, デクリメント */
 		Fixed& operator++();
