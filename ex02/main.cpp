@@ -56,7 +56,25 @@ int main( void ) {
 // 	std::cout << "static min/max (const)" << std::endl;
 // 	const Fixed ca(3.3f), cb(4.4f);
 // 	std::cout << "min(ca,cb) = " << Fixed::min(ca, cb) << "\n";
-// 	std::cout << "max(ca,cb) = " << Fixed::max(ca, cb) << "\n";
+// 	std::cout << "max(ca,cb) = " << Fixed::max(ca, cb) << "\n\n";
 
+
+// 	Fixed x(5);
+// 	Fixed zero(0);
+// 	std::cout << "片方が0の計算" << std::endl;
+// 	std::cout << "x / zero = " << (x / zero) << "\n";
+// 	std::cout << "x * zero = " << (x * zero) << "\n";
+// 	std::cout << "x + zero = " << (x + zero) << "\n";
+// 	std::cout << "x - zero = " << (x - zero) << "\n";
+// 	std::cout << "zero - x = " << (zero - x) << "\n\n";
+
+// 	std::cout << "0のインクリメント/デクリメント" << std::endl;
+// 	std::cout << "zero = "   <<  zero   << "\n";
+// 	std::cout << "++zero = " << ++zero << "\n";
+// 	std::cout << "zero++ = " <<  zero++ << "\n";
+// 	std::cout << "zero = "   <<  zero   << "\n";
+// 	std::cout << "--zero = " << --zero << "\n";
+// 	std::cout << "zero-- = " <<  zero-- << "\n";
+// 	std::cout << "zero = "   <<  zero   << "\n";
 // 	return 0;
 // }
