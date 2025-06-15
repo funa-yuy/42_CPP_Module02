@@ -2,17 +2,13 @@
 
 /*
  * デフォルトコンストラクタ
- * 固定小数点数値を 0 に初期化するデフォルトコンストラクタ(A default constructor )
  */
-Fixed::Fixed() : fixed_point_(0) {
-	std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : fixed_point_(0) {}
 
 /*
  * コピーコンストラクタ
  */
 Fixed::Fixed(const Fixed& c) {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = c;
 }
 
@@ -20,7 +16,6 @@ Fixed::Fixed(const Fixed& c) {
  * コピー代入演算子 (A copy assignment operator overload.)
  */
 Fixed &Fixed::operator=(const Fixed& c) {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &c)
 		this->fixed_point_ = c.fixed_point_;
 	return (*this);
@@ -29,16 +24,13 @@ Fixed &Fixed::operator=(const Fixed& c) {
 /*
  * デストラクタ
  */
-Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 /*
  * コンストラクタ
  * 整数値を固定小数点値に変換してfixed_point_に入れる。
 */
 Fixed::Fixed(const int value) : fixed_point_(value) {
-	std::cout << "Int constructor called" << std::endl;
 	fixed_point_ = value << fractional_bits_;
 }
 
@@ -47,7 +39,6 @@ Fixed::Fixed(const int value) : fixed_point_(value) {
  * 浮動小数点を固定小数点値に変換してfixed_point_に入れる。
 */
 Fixed::Fixed(const float value) : fixed_point_(value) {
-	std::cout << "Float constructor called" << std::endl;
 	fixed_point_ = roundf(value * (1 << fractional_bits_));
 }
 
@@ -55,7 +46,6 @@ Fixed::Fixed(const float value) : fixed_point_(value) {
  * 固定小数点値の生の値を返す
  */
 int Fixed::getRawBits(void) const{
-	std::cout << "getRawBits member function called" << std::endl;
 	return (fixed_point_);
 }
 
@@ -102,6 +92,7 @@ Fixed&	Fixed::min(Fixed& a, Fixed& b) { 					//ex02
 /*
  * 定数(const)の固定小数点数への参照を持つ2つのパラメータとして受け取り、
  * 最小のものへの参照を返します。
+ * 引数では、const オブジェクトも non-const オブジェクトも受け取れる
  */
 const Fixed&	Fixed::min(const Fixed& a, const Fixed& b) { //ex02
 	if (a.fixed_point_ <= b.fixed_point_)
@@ -124,6 +115,7 @@ Fixed&	Fixed::max(Fixed& a, Fixed& b) { 					//ex02
 /*
  * 定数(const)の固定小数点数への参照を持つ2つのパラメータとして受け取り、
  * 最大のものへの参照を返します。
+ * 引数では、const オブジェクトも non-const オブジェクトも受け取れる
  */
 const Fixed&	Fixed::max(const Fixed& a, const Fixed& b) { //ex02
 	if (a.fixed_point_ >= b.fixed_point_)
@@ -135,45 +127,27 @@ const Fixed&	Fixed::max(const Fixed& a, const Fixed& b) { //ex02
 // 比較演算子のオーバーロード ---------------------------------------------
 
 bool Fixed::operator<(const Fixed& rhs) const {				//ex02
-	if (this->fixed_point_ < rhs.fixed_point_)
-		return (true);
-	else
-		return (false);
+	return (this->fixed_point_ < rhs.fixed_point_);
 }
 
 bool Fixed::operator>(const Fixed& rhs) const {				//ex02
-	if (this->fixed_point_ > rhs.fixed_point_)
-		return (true);
-	else
-		return (false);
+	return (this->fixed_point_ > rhs.fixed_point_);
 }
 
 bool Fixed::operator>=(const Fixed& rhs) const {			//ex02
-	if (this->fixed_point_ >= rhs.fixed_point_)
-		return (true);
-	else
-		return (false);
+	return (this->fixed_point_ >= rhs.fixed_point_);
 }
 
 bool Fixed::operator<=(const Fixed& rhs) const {			//ex02
-	if (this->fixed_point_ <= rhs.fixed_point_)
-		return (true);
-	else
-		return (false);
+	return (this->fixed_point_ <= rhs.fixed_point_);
 }
 
 bool Fixed::operator==(const Fixed& rhs) const {			//ex02
-	if (this->fixed_point_ == rhs.fixed_point_)
-		return (true);
-	else
-		return (false);
+	return (this->fixed_point_ == rhs.fixed_point_);
 }
 
 bool Fixed::operator!=(const Fixed& rhs) const {			//ex02
-	if (this->fixed_point_ != rhs.fixed_point_)
-		return (true);
-	else
-		return (false);
+	return (this->fixed_point_ != rhs.fixed_point_);
 }
 
 // 算術演算子 数値の計算 ---------------------------------------------
@@ -216,7 +190,7 @@ Fixed Fixed::operator++(int) {								//ex02
  * 前置デクリメントと区別するために、引数にintを受け取る
  */
 Fixed& Fixed::operator--() {								//ex02
-	this->fixed_point_++;
+	this->fixed_point_--;
 	return (*this);
 }
 
@@ -224,7 +198,7 @@ Fixed Fixed::operator--(int) {								//ex02
 	Fixed	tmp;
 
 	tmp = *this;
-	this->fixed_point_++;
+	this->fixed_point_--;
 	return (tmp);
 }
 
