@@ -5,12 +5,12 @@ int main( void ) {
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
 	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
+	std::cout << ++a << std::endl;//固定小数点での1を浮動小数点に変換すると、0.00390625になる
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 
-	std::cout << b << std::endl;
+	std::cout << b << std::endl;//5.05 * 2 = 10.1だが、変換による誤差で10.1016になる
 
 	std::cout << Fixed::max( a, b ) << std::endl;
 
